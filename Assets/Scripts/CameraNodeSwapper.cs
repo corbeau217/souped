@@ -21,4 +21,10 @@ public class CameraNodeSwapper : MonoBehaviour
             currentNodeIndex = newCameraNodeIndex;
         }
     }
+    public void PrevCamera(){
+        SetCameraNode((cameraNodes.Count+(currentNodeIndex-1))%(cameraNodes.Count));
+    }
+    public void NextCamera(){
+        SetCameraNode((currentNodeIndex+1)%(cameraNodes.Count));
+    }
 }
