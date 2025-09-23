@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 99474f32f357b23ab8c6ad556d5ab506, type: 3}
+  m_Name: StandardSoup
+  m_EditorClassIdentifier: 
+  vegetableShapes:
+  - {fileID: 5438083419033865063, guid: 381a878aedc8af3288c10e1b3a2ce326, type: 3}
+  - {fileID: 5438083419033865063, guid: 381a878aedc8af3288c10e1b3a2ce326, type: 3}
+  - {fileID: 5438083419033865063, guid: 381a878aedc8af3288c10e1b3a2ce326, type: 3}
+  - {fileID: 5438083419033865063, guid: 381a878aedc8af3288c10e1b3a2ce326, type: 3}
+  - {fileID: 5438083419033865063, guid: 381a878aedc8af3288c10e1b3a2ce326, type: 3}
