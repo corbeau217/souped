@@ -45,8 +45,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5324f38b75267456db6f5aea99959d63, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  objectFollower: {fileID: 0}
-  entryNode: {fileID: 0}
+  objectFollower: {fileID: 2569757007843484478}
   orderNode: {fileID: 0}
   exitNode: {fileID: 0}
   receivedOrder: 0

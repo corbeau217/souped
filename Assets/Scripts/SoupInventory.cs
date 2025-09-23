@@ -34,4 +34,7 @@ public class SoupInventory : MonoBehaviour
             return false;
         }
     }
+    public bool HaveSoupToServe(int soupIndex){
+        return (soupAmounts[soupIndex] > 0);
+    }
 }

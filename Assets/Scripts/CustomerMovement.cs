@@ -4,12 +4,11 @@ using UnityEngine;
 
 public class CustomerMovement : MonoBehaviour
 {
-    public ServiceCounter serviceCounter;
     public ObjectFollower objectFollower;
     public CustomerNode orderNode;
     public CustomerNode exitNode;
 
-    public bool receivedOrder = false;
+    public bool receivedCorrectOrder = false;
     public int orderIndex = 0;
 
     void Start(){}
@@ -19,7 +18,12 @@ public class CustomerMovement : MonoBehaviour
     public void StartOrdering(){
         objectFollower.SetNewTarget(orderNode.transform);
     }
-    public void FinishOrdering(){
+    public bool FinishOrdering( int soupIndex ){
+        receivedCorrectOrder = (orderIndex==soupIndex);
         objectFollower.SetNewTarget(exitNode.transform);
+        return receivedCorrectOrder;
+    }
+    public bool WantsSoup( int soupIndex ){
+        return (orderIndex==soupIndex);
     }
 }

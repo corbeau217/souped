@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class CustomerGenerator : MonoBehaviour
 {
-    public ServiceCounter serviceCounter;
     public CustomerNode spawnNode;
     public CustomerNode orderNode;
     public CustomerNode exitNode;
@@ -15,14 +14,13 @@ public class CustomerGenerator : MonoBehaviour
     void Update(){}
     void OnDrawGizmos(){}
 
-    public void SpawnCustomer(){
+    public CustomerMovement SpawnCustomer(){
         GameObject newCustomer = (GameObject)Instantiate( customerPrefab, spawnNode.transform.position, spawnNode.transform.rotation, customerContainer );
         CustomerMovement movement = newCustomer.GetComponent<CustomerMovement>();
         if(movement==null){
             Debug.Log("spooky ghost customer "+newCustomer.name);
-            return;
+            return null;
         }
-        movement.serviceCounter = serviceCounter;
         movement.orderNode = orderNode;
         movement.exitNode = exitNode;
 
@@ -30,5 +28,8 @@ public class CustomerGenerator : MonoBehaviour
         movement.StartOrdering();
 
         // TODO : handle rolling our soup option
+
+        // give it back
+        return movement;
     }
 }
