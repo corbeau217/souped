@@ -2488,6 +2488,7 @@ MonoBehaviour:
   spawnTimeout: 0
   timeBetweenSpawns: 1
   randomiseVegetableSpawns: 1
+  startSpawningVegetables: 1
 --- !u!4 &450733254
 Transform:
   m_ObjectHideFlags: 0

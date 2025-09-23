@@ -14,7 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   vegetableShapes:
   - {fileID: 5438083419033865063, guid: 381a878aedc8af3288c10e1b3a2ce326, type: 3}
-  - {fileID: 5438083419033865063, guid: 381a878aedc8af3288c10e1b3a2ce326, type: 3}
-  - {fileID: 5438083419033865063, guid: 381a878aedc8af3288c10e1b3a2ce326, type: 3}
-  - {fileID: 5438083419033865063, guid: 381a878aedc8af3288c10e1b3a2ce326, type: 3}
-  - {fileID: 5438083419033865063, guid: 381a878aedc8af3288c10e1b3a2ce326, type: 3}
+  - {fileID: 5438083419033865063, guid: 228696d2a8a497efe8ae00c056bba4cb, type: 3}
+  - {fileID: 5438083419033865063, guid: 99a7581ae1f2e6e87b67f846645bd6e6, type: 3}
+  - {fileID: 5438083419033865063, guid: 8651323adf2a7757b936930d71150794, type: 3}
