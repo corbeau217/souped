@@ -13,8 +13,11 @@ public class DeliveryHandler : MonoBehaviour
     public SoupQualityHandler qualityHandler;
     public ComboCounter playerComboCounter;
 
+    [Space(10)]
+    public SoupInventory soupInventory;
     [Space(20)]
     public VegetableShapesList currentVegetableList;
+    public int soupIndex = 0;
 
     public int vegetablesToSpawn = 0;
     public float spawnTimeout = 0.0f;
@@ -42,7 +45,8 @@ public class DeliveryHandler : MonoBehaviour
         }
         // when the cooking is done
         if((comboUpdateRequired)&&(!boiler.IsCooking())){
-            // TODO : notify inventory of soups?
+            // notify inventory of soups
+            soupInventory.AddSoups(soupIndex);
 
             // no uncut veggies?
             if(!(qualityHandler.HadUncutVeggies())){
