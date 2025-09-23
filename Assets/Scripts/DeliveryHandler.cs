@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class DeliveryHandler : MonoBehaviour
 {
+    public BoilerHandler boiler;
     public VegetablePath pathToThrowVegies;
     public Transform vegieSpawnContainer;
 
@@ -15,21 +16,28 @@ public class DeliveryHandler : MonoBehaviour
     public float timeBetweenSpawns = 1.0f;
 
     public bool randomiseVegetableSpawns = true;
-    public bool startSpawningVegetables = true;
-
-    void Start(){
-        // ask that we spawn that many vegetables
-        vegetablesToSpawn = currentVegetableList.vegetableShapes.Count;
-    }
+    public bool cookingStillRequired = false;
+    public float cookingTime = 0.0f;
+    public int childCounter = 0;
+    void Start(){}
     void Update(){
+        this.childCounter = vegieSpawnContainer.childCount;
         UpdateSpawnList();
         if((vegetablesToSpawn > 0)){
+            cookingStillRequired = true;
             AttemptVegieSpawn();
+        }
+        // none left to spawn, and spawning veggies, and not still throwing
+        if((HasSpawnedAllVegetables())&&(cookingStillRequired)&&(!VegiesStillThrowing()) ){
+            boiler.SetCookingTime(cookingTime);
+            cookingStillRequired = false;
         }
     }
 
     private void UpdateSpawnList(){
-        this.vegieSpawner.vegieSpawnablePrefabs = currentVegetableList.vegetableShapes;
+        if(currentVegetableList!=null){
+            this.vegieSpawner.vegieSpawnablePrefabs = currentVegetableList.vegetableShapes;
+        }
     }
 
     private void AttemptVegieSpawn(){
@@ -56,10 +64,20 @@ public class DeliveryHandler : MonoBehaviour
     public bool HasSpawnedAllVegetables(){
         return (this.vegetablesToSpawn == 0);
     }
+    public bool VegiesStillThrowing(){
+        return (vegieSpawnContainer.childCount > 0);
+    }
     public void SetTimeBetweenSpawns(float newTime){
         timeBetweenSpawns = newTime;
         // clamp the spawn timeout to be the new timeout incase we were already sleeping
         //  so that we dont wait as long if our new timeout is less than before
         spawnTimeout = Mathf.Min(spawnTimeout, newTime);
+    }
+
+    public void ChangeRecipe(VegetableShapesList newIngredients){
+        currentVegetableList = newIngredients;
+        // ask that we spawn that many vegetables
+        vegetablesToSpawn = currentVegetableList.vegetableShapes.Count;
+        this.cookingTime = newIngredients.cookingTime;
     }
 }

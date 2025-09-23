@@ -17,3 +17,4 @@ MonoBehaviour:
   - {fileID: 5438083419033865063, guid: d6a6a6c4dd42a316c93a71afd1be0ca5, type: 3}
   - {fileID: 5438083419033865063, guid: 99a7581ae1f2e6e87b67f846645bd6e6, type: 3}
   - {fileID: 5438083419033865063, guid: 8651323adf2a7757b936930d71150794, type: 3}
+  cookingTime: 5

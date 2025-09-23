@@ -6,4 +6,5 @@ using UnityEngine;
 public class VegetableShapesList : ScriptableObject
 {
     public List<GameObject> vegetableShapes;
+    public float cookingTime = 1.0f;
 }
