@@ -4,15 +4,22 @@ using UnityEngine;
 
 public class VegetableSliceBehaviour : MonoBehaviour
 {
-    void Start(){}
-    void Update(){}
+    public VegetablePathFollower vegetablePathFollower;
+    void Start(){
+        vegetablePathFollower = GetComponent<VegetablePathFollower>();
+    }
+    void Update(){
+        if(vegetablePathFollower==null){
+            vegetablePathFollower = GetComponent<VegetablePathFollower>();
+        }
+    }
 
     // finds the slice spawner and spawns slices
     public void SliceVegetable(VegetablePath vegiePath){
         VegetableSpawner sliceSpawner = this.GetComponent<VegetableSpawner>();
         if(sliceSpawner!=null){
             // provide our parent to slices
-            sliceSpawner.SpawnAllVegetables(this.transform.parent, vegiePath);
+            sliceSpawner.SpawnSlices(this.transform.parent, vegiePath, vegetablePathFollower.pathMovementPercent);
 
             // delete this
             Destroy(gameObject);

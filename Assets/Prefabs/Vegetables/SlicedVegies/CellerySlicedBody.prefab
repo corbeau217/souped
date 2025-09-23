@@ -14,9 +14,9 @@ GameObject:
   - component: {fileID: 2630143232177667308}
   - component: {fileID: 8442242473126336073}
   - component: {fileID: -7172912459174543206}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: CellerySlicedBody
-  m_TagString: Untagged
+  m_TagString: SlicedVeggie
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -101,7 +101,7 @@ MonoBehaviour:
   pathToFollow: {fileID: 0}
   pathMovementSpeed: 0.25
   pathMovementPercent: 0
-  movementCompletePercent: 1.5
+  movementCompletePercent: 1
 --- !u!65 &8442242473126336073
 BoxCollider:
   m_ObjectHideFlags: 0

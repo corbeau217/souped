@@ -45,9 +45,9 @@ public class DeliveryHandler : MonoBehaviour
     }
     private void SpawnAnVegie(){
         // ask to spawn a random vegie on our path
-        if(randomiseVegetableSpawns) vegieSpawner.SpawnRandomVegetable(vegieSpawnContainer, pathToThrowVegies);
+        if(randomiseVegetableSpawns) {vegieSpawner.SpawnRandomVegetable(vegieSpawnContainer, pathToThrowVegies);}
         // assuming the vegetables to spawn is no more than the number of vegies in the list
-        else vegieSpawner.SpawnVegetable(vegetablesToSpawn-1, vegieSpawnContainer, pathToThrowVegies);
+        else{ vegieSpawner.SpawnVegetable(vegetablesToSpawn-1, vegieSpawnContainer, pathToThrowVegies);}
         // then timeout the spawn
         spawnTimeout = timeBetweenSpawns;
         vegetablesToSpawn--;

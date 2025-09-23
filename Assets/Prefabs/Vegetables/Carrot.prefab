@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 883178383291203651}
   - component: {fileID: 5845363631997644030}
   - component: {fileID: 6126040779104530714}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: CarrotGreens
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -97,7 +97,7 @@ GameObject:
   - component: {fileID: -5916671701257661290}
   - component: {fileID: 7550619425888716101}
   - component: {fileID: 3730635229945132381}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Carrot
   m_TagString: Veggie
   m_Icon: {fileID: 0}
@@ -133,6 +133,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 50bc8442c7e2c0298a348c297b0da06f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  vegetablePathFollower: {fileID: 0}
 --- !u!114 &-8340139643006389488
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -162,9 +163,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pathToFollow: {fileID: 0}
-  pathMovementSpeed: 0.91
+  pathMovementSpeed: 0.25
   pathMovementPercent: 0
-  movementCompletePercent: 1.35
+  movementCompletePercent: 1.01
 --- !u!136 &7550619425888716101
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -206,7 +207,7 @@ GameObject:
   - component: {fileID: 762587774678196465}
   - component: {fileID: 752556188160690677}
   - component: {fileID: 895817151993239008}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: CarrotBody
   m_TagString: Untagged
   m_Icon: {fileID: 0}

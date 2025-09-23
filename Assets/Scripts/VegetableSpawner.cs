@@ -23,9 +23,9 @@ public class VegetableSpawner : MonoBehaviour
 
         SpawnVegetable(selectionIndex, parentTransform,vegiePath);
     }
-    public void SpawnAllVegetables(Transform parentTransform, VegetablePath vegiePath){
+    public void SpawnSlices(Transform parentTransform, VegetablePath vegiePath, float pathMovementPercent){
         for(int i = 0; i < this.vegieSpawnablePrefabs.Count; i++){
-            SpawnVegetable(i, parentTransform,vegiePath);
+            SpawnVegetableSlice(i, parentTransform,vegiePath,pathMovementPercent);
         }
     }
     public void SpawnVegetable(int indexToSpawn, Transform parentTransform, VegetablePath vegiePath){
@@ -47,5 +47,26 @@ public class VegetableSpawner : MonoBehaviour
 
         // otherwise give it the stuff
         spawnedPathFollower.SetFollowingPath(vegiePath);
+    }
+    public void SpawnVegetableSlice(int indexToSpawn, Transform parentTransform, VegetablePath vegiePath, float pathMovementPercent){
+        if(vegieSpawnablePrefabs.Count==0){
+            Debug.Log("sorry boss, no options on " + gameObject.name);
+            return;
+        }
+        // spawn it
+        GameObject spawnedVegie = (GameObject)Instantiate( vegieSpawnablePrefabs[indexToSpawn], parentTransform );
+
+        // fetch rigid body
+        VegetablePathFollower spawnedPathFollower = spawnedVegie.GetComponent<VegetablePathFollower>();
+
+        // dud vegie?
+        if(spawnedPathFollower==null) {
+            Debug.Log("sorry boss, that's a dud vegie, "+gameObject.name+" didnt have VegetablePathFollower");
+            return;
+        }
+
+        // otherwise give it the stuff
+        spawnedPathFollower.SetFollowingPath(vegiePath);
+        spawnedPathFollower.pathMovementPercent = pathMovementPercent;
     }
 }

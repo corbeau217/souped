@@ -14,9 +14,9 @@ GameObject:
   - component: {fileID: 3339842972628539347}
   - component: {fileID: 6198599802668575323}
   - component: {fileID: 3755009989239828089}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: CarrotSlicedBody
-  m_TagString: Untagged
+  m_TagString: SlicedVeggie
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -130,4 +130,4 @@ MonoBehaviour:
   pathToFollow: {fileID: 0}
   pathMovementSpeed: 0.25
   pathMovementPercent: 0
-  movementCompletePercent: 1.5
+  movementCompletePercent: 1

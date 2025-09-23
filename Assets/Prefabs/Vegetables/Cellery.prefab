@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: -5916671701257661290}
   - component: {fileID: 7550619425888716101}
   - component: {fileID: 3730635229945132381}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cellery
   m_TagString: Veggie
   m_Icon: {fileID: 0}
@@ -52,6 +52,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 50bc8442c7e2c0298a348c297b0da06f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  vegetablePathFollower: {fileID: 0}
 --- !u!114 &-8340139643006389488
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -82,9 +83,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pathToFollow: {fileID: 0}
-  pathMovementSpeed: 0.91
+  pathMovementSpeed: 0.25
   pathMovementPercent: 0
-  movementCompletePercent: 1.35
+  movementCompletePercent: 1.01
 --- !u!136 &7550619425888716101
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -126,7 +127,7 @@ GameObject:
   - component: {fileID: 762587774678196465}
   - component: {fileID: 752556188160690677}
   - component: {fileID: 895817151993239008}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: CelleryStalk1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -209,7 +210,7 @@ GameObject:
   - component: {fileID: 1718107254524773687}
   - component: {fileID: 2135680935631324296}
   - component: {fileID: 5302212017760749700}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: CelleryStalk2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -292,7 +293,7 @@ GameObject:
   - component: {fileID: 4389729861515255756}
   - component: {fileID: 7257002371292894297}
   - component: {fileID: 8987144346118083726}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: CelleryStalk4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -375,7 +376,7 @@ GameObject:
   - component: {fileID: 7604864837513751483}
   - component: {fileID: 7455689391453094624}
   - component: {fileID: 4888874897665764962}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: CelleryStalk3
   m_TagString: Untagged
   m_Icon: {fileID: 0}

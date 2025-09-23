@@ -10,7 +10,7 @@ public class VegetablePathFollower : MonoBehaviour
     [Tooltip("how far along the path it is")]
     public float pathMovementPercent = 0.0f;
     [Tooltip("when to try delete this object")]
-    public float movementCompletePercent = 1.5f;
+    public float movementCompletePercent = 1.1f;
 
     void Start(){}
     void Update(){
