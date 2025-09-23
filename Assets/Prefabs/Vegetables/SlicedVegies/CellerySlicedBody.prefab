@@ -99,9 +99,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pathToFollow: {fileID: 0}
+  qualityHandler: {fileID: 0}
   pathMovementSpeed: 0.25
   pathMovementPercent: 0
   movementCompletePercent: 1
+  noticedEndOfPath: 0
+  uncutVeggie: 0
 --- !u!65 &8442242473126336073
 BoxCollider:
   m_ObjectHideFlags: 0

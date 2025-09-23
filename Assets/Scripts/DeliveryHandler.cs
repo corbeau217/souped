@@ -6,9 +6,14 @@ public class DeliveryHandler : MonoBehaviour
 {
     public BoilerHandler boiler;
     public VegetablePath pathToThrowVegies;
+    public VegetableSpawner vegieSpawner;
     public Transform vegieSpawnContainer;
 
-    public VegetableSpawner vegieSpawner;
+    [Space(10)]
+    public SoupQualityHandler qualityHandler;
+    public ComboCounter playerComboCounter;
+
+    [Space(20)]
     public VegetableShapesList currentVegetableList;
 
     public int vegetablesToSpawn = 0;
@@ -17,6 +22,7 @@ public class DeliveryHandler : MonoBehaviour
 
     public bool randomiseVegetableSpawns = true;
     public bool cookingStillRequired = false;
+    public bool comboUpdateRequired = false;
     public float cookingTime = 0.0f;
     public int childCounter = 0;
     void Start(){}
@@ -26,11 +32,26 @@ public class DeliveryHandler : MonoBehaviour
         if((vegetablesToSpawn > 0)){
             cookingStillRequired = true;
             AttemptVegieSpawn();
+            comboUpdateRequired = false;
         }
         // none left to spawn, and spawning veggies, and not still throwing
         if((HasSpawnedAllVegetables())&&(cookingStillRequired)&&(!VegiesStillThrowing()) ){
             boiler.SetCookingTime(cookingTime);
             cookingStillRequired = false;
+            comboUpdateRequired = true;
+        }
+        // when the cooking is done
+        if((comboUpdateRequired)&&(!boiler.IsCooking())){
+            // TODO : notify inventory of soups?
+
+            // no uncut veggies?
+            if(!(qualityHandler.HadUncutVeggies())){
+                playerComboCounter.IncreaseCombo();
+            }
+            else {
+                playerComboCounter.ResetCombo();
+            }
+            comboUpdateRequired = false;
         }
     }
 
@@ -53,9 +74,9 @@ public class DeliveryHandler : MonoBehaviour
     }
     private void SpawnAnVegie(){
         // ask to spawn a random vegie on our path
-        if(randomiseVegetableSpawns) {vegieSpawner.SpawnRandomVegetable(vegieSpawnContainer, pathToThrowVegies);}
+        if(randomiseVegetableSpawns) {vegieSpawner.SpawnRandomVegetable(vegieSpawnContainer, pathToThrowVegies,qualityHandler);}
         // assuming the vegetables to spawn is no more than the number of vegies in the list
-        else{ vegieSpawner.SpawnVegetable(vegetablesToSpawn-1, vegieSpawnContainer, pathToThrowVegies);}
+        else{ vegieSpawner.SpawnVegetable(vegetablesToSpawn-1, vegieSpawnContainer, pathToThrowVegies,qualityHandler);}
         // then timeout the spawn
         spawnTimeout = timeBetweenSpawns;
         vegetablesToSpawn--;
@@ -79,5 +100,6 @@ public class DeliveryHandler : MonoBehaviour
         // ask that we spawn that many vegetables
         vegetablesToSpawn = currentVegetableList.vegetableShapes.Count;
         this.cookingTime = newIngredients.cookingTime;
+        qualityHandler.ClearPreviousQuality();
     }
 }

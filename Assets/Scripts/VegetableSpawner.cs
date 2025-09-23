@@ -12,7 +12,7 @@ public class VegetableSpawner : MonoBehaviour
     void Update(){}
     void OnDrawGizmos(){}
 
-    public void SpawnRandomVegetable(Transform parentTransform, VegetablePath vegiePath){
+    public void SpawnRandomVegetable(Transform parentTransform, VegetablePath vegiePath, SoupQualityHandler qualityHandler){
         if(vegieSpawnablePrefabs==null) {
             Debug.Log("sorry boss, no vegie prefabs on " + gameObject.name);
             return;
@@ -21,14 +21,14 @@ public class VegetableSpawner : MonoBehaviour
         // choose one
         int selectionIndex = Random.Range(0,(vegieSpawnablePrefabs.Count-1));
 
-        SpawnVegetable(selectionIndex, parentTransform,vegiePath);
+        SpawnVegetable(selectionIndex, parentTransform,vegiePath,qualityHandler);
     }
-    public void SpawnSlices(Transform parentTransform, VegetablePath vegiePath, float pathMovementPercent){
+    public void SpawnSlices(Transform parentTransform, VegetablePath vegiePath, float pathMovementPercent, SoupQualityHandler qualityHandler){
         for(int i = 0; i < this.vegieSpawnablePrefabs.Count; i++){
-            SpawnVegetableSlice(i, parentTransform,vegiePath,pathMovementPercent);
+            SpawnVegetableSlice(i, parentTransform,vegiePath,pathMovementPercent,qualityHandler);
         }
     }
-    public void SpawnVegetable(int indexToSpawn, Transform parentTransform, VegetablePath vegiePath){
+    public void SpawnVegetable(int indexToSpawn, Transform parentTransform, VegetablePath vegiePath, SoupQualityHandler qualityHandler){
         if(vegieSpawnablePrefabs.Count==0){
             Debug.Log("sorry boss, no options on " + gameObject.name);
             return;
@@ -47,8 +47,9 @@ public class VegetableSpawner : MonoBehaviour
 
         // otherwise give it the stuff
         spawnedPathFollower.SetFollowingPath(vegiePath);
+        spawnedPathFollower.GiveQualityHandler(qualityHandler);
     }
-    public void SpawnVegetableSlice(int indexToSpawn, Transform parentTransform, VegetablePath vegiePath, float pathMovementPercent){
+    public void SpawnVegetableSlice(int indexToSpawn, Transform parentTransform, VegetablePath vegiePath, float pathMovementPercent, SoupQualityHandler qualityHandler){
         if(vegieSpawnablePrefabs.Count==0){
             Debug.Log("sorry boss, no options on " + gameObject.name);
             return;
@@ -67,6 +68,7 @@ public class VegetableSpawner : MonoBehaviour
 
         // otherwise give it the stuff
         spawnedPathFollower.SetFollowingPath(vegiePath);
+        spawnedPathFollower.GiveQualityHandler(qualityHandler);
         spawnedPathFollower.pathMovementPercent = pathMovementPercent;
     }
 }

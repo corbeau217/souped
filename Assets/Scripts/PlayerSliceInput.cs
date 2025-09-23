@@ -6,6 +6,7 @@ public class PlayerSliceInput : MonoBehaviour
 {
     public LayerMask sliceableLayers;
     public VegetablePath vegiePath;
+    public SoupQualityHandler qualityHandler;
     public Camera playerCamera;
     // public bool isInputDetected = false;
     void Start(){}
@@ -23,7 +24,7 @@ public class PlayerSliceInput : MonoBehaviour
                 // found the slice behaviour
                 if(sliceBehaviour != null){
                     // slice and give it a path to follow
-                    sliceBehaviour.SliceVegetable(vegiePath);
+                    sliceBehaviour.SliceVegetable(vegiePath,qualityHandler);
                 }
             }
         }

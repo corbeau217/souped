@@ -15,11 +15,11 @@ public class VegetableSliceBehaviour : MonoBehaviour
     }
 
     // finds the slice spawner and spawns slices
-    public void SliceVegetable(VegetablePath vegiePath){
+    public void SliceVegetable(VegetablePath vegiePath,SoupQualityHandler qualityHandler){
         VegetableSpawner sliceSpawner = this.GetComponent<VegetableSpawner>();
         if(sliceSpawner!=null){
             // provide our parent to slices
-            sliceSpawner.SpawnSlices(this.transform.parent, vegiePath, vegetablePathFollower.pathMovementPercent);
+            sliceSpawner.SpawnSlices(this.transform.parent, vegiePath, vegetablePathFollower.pathMovementPercent,qualityHandler);
 
             // delete this
             Destroy(gameObject);

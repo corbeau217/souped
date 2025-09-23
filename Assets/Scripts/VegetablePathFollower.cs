@@ -5,12 +5,17 @@ using UnityEngine;
 public class VegetablePathFollower : MonoBehaviour
 {
     public VegetablePath pathToFollow;
+    public SoupQualityHandler qualityHandler;
     [Tooltip("the rate at which it moves along the path")]
     public float pathMovementSpeed = 0.25f;
     [Tooltip("how far along the path it is")]
     public float pathMovementPercent = 0.0f;
     [Tooltip("when to try delete this object")]
     public float movementCompletePercent = 1.1f;
+
+    
+    public bool noticedEndOfPath = false;
+    public bool uncutVeggie = true;
 
     void Start(){}
     void Update(){
@@ -24,7 +29,7 @@ public class VegetablePathFollower : MonoBehaviour
         }
 
         // when we finished moving
-        if(pathMovementPercent >= movementCompletePercent){
+        if((pathMovementPercent >= movementCompletePercent)&&(!noticedEndOfPath)){
             HandlePathComplete();
         }
     }
@@ -33,9 +38,14 @@ public class VegetablePathFollower : MonoBehaviour
     public void SetFollowingPath(VegetablePath followingPath){
         pathToFollow = followingPath;
     }
+    public void GiveQualityHandler(SoupQualityHandler handler){
+        this.qualityHandler = handler;
+    }
     private void HandlePathComplete(){
         // we in the soup noww
-        // TODO : tell our soup we arrived
+        noticedEndOfPath = true;
+        // tell our soup we arrived
+        if(uncutVeggie) { qualityHandler.IncreaseUncutVeggieCount(); }
         // delete this object
         Destroy(gameObject);
     }

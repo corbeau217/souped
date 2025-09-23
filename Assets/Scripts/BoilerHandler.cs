@@ -12,6 +12,7 @@ public class BoilerHandler : MonoBehaviour
         // snooze for cooking
         //  avoiding going below 0
         cookingTimeRemaining = Mathf.Max((cookingTimeRemaining - Time.deltaTime), 0.0f);
+
         // show our flames if we're cooking
         burnerFlame.SetActive(IsCooking());
     }
