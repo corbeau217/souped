@@ -12,15 +12,22 @@
 - [x] food delivery truck
 - [x] office space
 - [x] boiler camera point
-- [ ] boiler pot shape
-- [ ] office pc
-- [ ] menu/clock in
-- [ ] clock in camera point
+- [x] boiler pot shape
+- [x] office pc
+- [x] menu/clock in
+- [x] clock in camera point
+- [x] combo menu
+- [x] recipe menu
+- [x] inventory menu
+- [ ] serve customer menu
 ## mechanisms
-- [ ] the vegie thrower
-- [ ] vegie slicer
-- [ ] soup cooker
-- [ ] orders from customers
+- [x] the vegie thrower
+- [x] vegie slicer
+- [x] soup cooker
+- [ ] serving customer
+- [ ] customer generation
+- [ ] customer move to order
+- [ ] customer move to leave
 ## ideas
 * highlighting the things we hover
-    - post processing difference of gaussian blurs
+    - post processing difference of gaussian blurs?

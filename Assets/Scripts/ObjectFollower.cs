@@ -13,18 +13,20 @@ public class ObjectFollower : MonoBehaviour
     void Start(){}
     void Update(){
         float timeDelta = Time.deltaTime;
-
-        // handle movement
-        float distanceFromTarget = Vector3.Distance(transform.position, objectToFollow.position);
-        // how far are we from our point? should we go rly fast?
-        float movementScale = Mathf.InverseLerp(0, maximumDistance, distanceFromTarget);
-        // calms down the closer we are to the point
-        float movementStep = movementScale * movementSpeed * timeDelta;
-        transform.position = Vector3.MoveTowards(transform.position, objectToFollow.position, movementStep);
-        
-        // handle rotation
-        float rotationStep = rotationSpeed * timeDelta;
-        transform.rotation = Quaternion.RotateTowards(transform.rotation, objectToFollow.rotation, rotationStep);
+        if(objectToFollow!=null){
+            // ...
+            // handle movement
+            float distanceFromTarget = Vector3.Distance(transform.position, objectToFollow.position);
+            // how far are we from our point? should we go rly fast?
+            float movementScale = Mathf.InverseLerp(0, maximumDistance, distanceFromTarget);
+            // calms down the closer we are to the point
+            float movementStep = movementScale * movementSpeed * timeDelta;
+            transform.position = Vector3.MoveTowards(transform.position, objectToFollow.position, movementStep);
+            
+            // handle rotation
+            float rotationStep = rotationSpeed * timeDelta;
+            transform.rotation = Quaternion.RotateTowards(transform.rotation, objectToFollow.rotation, rotationStep);
+        }
     }
     void OnDrawGizmos(){}
 
