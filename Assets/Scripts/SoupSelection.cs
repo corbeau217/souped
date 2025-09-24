@@ -8,6 +8,7 @@ public class SoupSelection : MonoBehaviour
     public BoilerHandler boiler;
     public List<VegetableShapesList> soupRecipes;
     public GameObject recipeSelectionMenu;
+    public GameObject boilerPot;
     public bool showSelectionMenu = false;
 
     void Start(){}
@@ -19,6 +20,7 @@ public class SoupSelection : MonoBehaviour
             !(boiler.IsCooking())
         );
         recipeSelectionMenu.SetActive( showSelectionMenu );
+        boilerPot.SetActive( !showSelectionMenu );
     }
     void OnDrawGizmos(){}
 

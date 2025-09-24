@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class SoupQualityHandler : MonoBehaviour
 {
+    public ChecklistStatus checklistStatus;
     public int unchoppedVeggiesReceived = 0;
 
     void Start(){}
@@ -16,6 +17,9 @@ public class SoupQualityHandler : MonoBehaviour
         unchoppedVeggiesReceived=0;
     }
     public bool HadUncutVeggies(){
-        return (unchoppedVeggiesReceived>0);
+        bool hadUncut = (unchoppedVeggiesReceived>0);
+        // when we have access to the checklist and didnt receive uncut veggies, mark the good soup done
+        if((checklistStatus!=null)&&(!hadUncut)){ checklistStatus.MarkItemDone(1); }
+        return hadUncut;
     }
 }

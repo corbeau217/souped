@@ -4,6 +4,10 @@ using UnityEngine;
 
 public class CustomerService : MonoBehaviour
 {
+    public ChecklistStatus checklistStatus;
+    public ComboCounter derekCounter;
+    public ComboCounter playerCounter;
+    [Space(10)]
     public CustomerGenerator customerGenerator;
     public SoupInventory soupInventory;
     [Space(10)]
@@ -30,9 +34,25 @@ public class CustomerService : MonoBehaviour
     }
 
     public void ServeCurrentCustomer(int soupIndex){
-        if( soupInventory.HaveSoupToServe( soupIndex ) && currentCustomer.WantsSoup(soupIndex) ){
+        bool haveSoup = soupInventory.HaveSoupToServe( soupIndex );
+        bool wantsSoup = currentCustomer.WantsSoup(soupIndex);
+        if( haveSoup ){
             soupInventory.ServeSoup(soupIndex);
             currentCustomer.FinishOrdering(soupIndex);
+
+            // regardless of soup served, derek gets a star
+            if(derekCounter!=null){ derekCounter.IncreaseCombo(); }
+            if(playerCounter!=null){
+                // if it wasnt the right soup, break our combo
+                if((!wantsSoup)){
+                    playerCounter.ResetCombo();
+                    // TODO : say it was bad somehow
+                }
+                else {
+                    // otherwise mark the checklist item as done
+                    if(checklistStatus!=null){ checklistStatus.MarkItemDone(2); }
+                }
+            }
 
             serveMenu.SetActive(false);
             requestMenu.SetActive(true);

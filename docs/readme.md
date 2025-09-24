@@ -19,15 +19,23 @@
 - [x] combo menu
 - [x] recipe menu
 - [x] inventory menu
-- [ ] serve customer menu
+- [x] serve customer menu
+- [ ] computer shows map
+- [ ] soup selection tips
 ## mechanisms
 - [x] the vegie thrower
 - [x] vegie slicer
 - [x] soup cooker
-- [ ] serving customer
-- [ ] customer generation
-- [ ] customer move to order
-- [ ] customer move to leave
+- [x] serving customer
+- [x] customer generation
+- [x] customer move to order
+- [x] customer move to leave
+- [ ] customer announcing order
+- [ ] inventory notifications
+- [ ] derek getting starts
+- [ ] random new customer
+- [ ] vegie movement upgrade
+- [ ] help toasts
 ## ideas
 * highlighting the things we hover
     - post processing difference of gaussian blurs?

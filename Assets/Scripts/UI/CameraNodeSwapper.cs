@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class CameraNodeSwapper : MonoBehaviour
 {
+    public ChecklistStatus checklistStatus;
     public List<CameraNode> cameraNodes = new List<CameraNode>();
     public ObjectFollower cameraFollowComponent;
     public int currentNodeIndex;
@@ -23,8 +24,10 @@ public class CameraNodeSwapper : MonoBehaviour
     }
     public void PrevCamera(){
         SetCameraNode((cameraNodes.Count+(currentNodeIndex-1))%(cameraNodes.Count));
+        if(checklistStatus!=null){ checklistStatus.MarkItemDone(0); }
     }
     public void NextCamera(){
         SetCameraNode((currentNodeIndex+1)%(cameraNodes.Count));
+        if(checklistStatus!=null){ checklistStatus.MarkItemDone(0); }
     }
 }
