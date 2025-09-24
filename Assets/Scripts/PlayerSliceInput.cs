@@ -4,6 +4,10 @@ using UnityEngine;
 
 public class PlayerSliceInput : MonoBehaviour
 {
+    public AudioSource sliceAudioSource;
+    public float minimumSliceVolume = 0.6f;
+    public float maximumSliceVolume = 0.8f;
+    [Space(10)]
     public LayerMask sliceableLayers;
     public VegetablePath vegiePath;
     public SoupQualityHandler qualityHandler;
@@ -23,6 +27,10 @@ public class PlayerSliceInput : MonoBehaviour
                 VegetableSliceBehaviour sliceBehaviour = hitGameObject.GetComponent<VegetableSliceBehaviour>();
                 // found the slice behaviour
                 if(sliceBehaviour != null){
+                    // play sound early because it destroys on slice
+                    if((sliceBehaviour.sliceClip!=null)){
+                        sliceAudioSource.PlayOneShot(sliceBehaviour.sliceClip, GetSliceVolume());
+                    }
                     // slice and give it a path to follow
                     sliceBehaviour.SliceVegetable(vegiePath,qualityHandler);
                 }
@@ -31,5 +39,7 @@ public class PlayerSliceInput : MonoBehaviour
     }
     void OnDrawGizmos(){}
 
-
+    private float GetSliceVolume(){
+        return Random.Range(minimumSliceVolume,maximumSliceVolume);
+    }
 }

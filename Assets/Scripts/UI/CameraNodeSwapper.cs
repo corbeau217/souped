@@ -4,6 +4,10 @@ using UnityEngine;
 
 public class CameraNodeSwapper : MonoBehaviour
 {
+    public AudioClip swapCameraSound;
+    public AudioSource swapCameraSoundSource;
+    public float swapSoundVolume = 0.8f;
+    [Space(10)]
     public ChecklistStatus checklistStatus;
     public List<CameraNode> cameraNodes = new List<CameraNode>();
     public ObjectFollower cameraFollowComponent;
@@ -18,6 +22,8 @@ public class CameraNodeSwapper : MonoBehaviour
         if((newCameraNodeIndex < cameraNodes.Count)&&(newCameraNodeIndex != currentNodeIndex)){
             // ask to move
             cameraFollowComponent.SetNewTarget(cameraNodes[newCameraNodeIndex].transform);
+            // make sound
+            swapCameraSoundSource.PlayOneShot(swapCameraSound, swapSoundVolume);
             // save where we're going
             currentNodeIndex = newCameraNodeIndex;
         }

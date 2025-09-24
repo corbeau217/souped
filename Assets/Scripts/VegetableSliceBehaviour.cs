@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class VegetableSliceBehaviour : MonoBehaviour
 {
+    public AudioClip sliceClip;
     public VegetablePathFollower vegetablePathFollower;
     void Start(){
         vegetablePathFollower = GetComponent<VegetablePathFollower>();

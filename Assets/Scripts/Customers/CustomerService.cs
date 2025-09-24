@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class CustomerService : MonoBehaviour
 {
+    public AudioClip orderCompleteClip;
+    public AudioSource orderCompleteSource;
+    [Space(10)]
     public ChecklistStatus checklistStatus;
     public ComboCounter derekCounter;
     public ComboCounter playerCounter;
@@ -53,6 +56,8 @@ public class CustomerService : MonoBehaviour
                     if(checklistStatus!=null){ checklistStatus.MarkItemDone(2); }
                 }
             }
+            // play sound
+            orderCompleteSource.PlayOneShot(orderCompleteClip, 0.6f);
 
             serveMenu.SetActive(false);
             requestMenu.SetActive(true);

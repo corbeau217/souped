@@ -52,6 +52,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 50bc8442c7e2c0298a348c297b0da06f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sliceClip: {fileID: 8300000, guid: f01806b7ffb92a59f8ff48640fecfed5, type: 3}
   vegetablePathFollower: {fileID: 0}
 --- !u!114 &-8340139643006389488
 MonoBehaviour:
@@ -83,9 +84,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pathToFollow: {fileID: 0}
-  pathMovementSpeed: 0.25
+  qualityHandler: {fileID: 0}
+  pathMovementSpeed: 0.4
   pathMovementPercent: 0
   movementCompletePercent: 1.01
+  noticedEndOfPath: 0
+  uncutVeggie: 1
 --- !u!136 &7550619425888716101
 CapsuleCollider:
   m_ObjectHideFlags: 0
